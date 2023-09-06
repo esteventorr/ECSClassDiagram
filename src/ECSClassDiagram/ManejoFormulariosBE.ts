@@ -3,22 +3,24 @@ import { ManejoDatos } from './ManejoDatos';
 export class ManejoFormulariosBE {
     // ...
     formularios: any;
-    private userID: ManejoDatos["CFN"];
-    private formID: ManejoDatos["ECN"];
+    private userID: number;
+    private formID: number;
 
     constructor(formularios: any) {
         this.formularios = this.formularios;
+        this.userID = ManejoDatos.getUserID();
+        this.formID = ManejoDatos.getFormID();
     }
-    validarDatos(datos, userID): boolean {
+    validarDatos(datos): boolean {
     return true;
     }
-    enviarDatos(datos, userID, formID):void{
+    enviarDatos(datos):void{
 
     }
-    abrirFormulario(userID, formID): any{
+    abrirFormulario(): any{
         return this.formularios;
     }
-    actualizarDatos(datos, userID, formID):void{
+    actualizarDatos(datos):void{
         
     }
 }
