@@ -1,4 +1,4 @@
-import { ManejoDatos } from './ManejoDatos';
+import { ManejadorDatos } from './ManejoDatos';
 
 export class ManejoFormulariosBE {
     // ...
@@ -8,8 +8,8 @@ export class ManejoFormulariosBE {
 
     constructor(formularios: any) {
         this.formularios = this.formularios;
-        this.userID = ManejoDatos.getUserID();
-        this.formID = ManejoDatos.getFormID();
+        this.userID = ManejadorDatos.getUserID();
+        this.formID = ManejadorDatos.getFormID();
     }
     validarDatos(datos): boolean {
     return true;
