@@ -1,3 +1,4 @@
+import { Soporte } from "./Soporte";
 
 export interface IPreguntaFrecuenteCasoDeUso {
     crearPreguntaFrecuente(titulo: string, descripcion: string): Soporte;

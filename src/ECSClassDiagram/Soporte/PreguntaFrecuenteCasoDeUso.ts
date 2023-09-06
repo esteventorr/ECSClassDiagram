@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { Soporte } from '../Soporte';
+import { Soporte } from './Soporte';
 import { IPreguntaFrecuenteCasoDeUso } from './IPreguntaFrecuenteCasoDeUso';
 
 // Simulación de la base de datos de preguntas frecuentes
