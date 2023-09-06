@@ -21,5 +21,11 @@ export class ManejadorDatos {
 
   persistirDatos(): void {}
   enviarDatosAECP(): void {}
+  getUserID(): number {
+    return datos;
+  }
+  geFormID(): number {
+    return datos;
+  }
   //... otros métodos
 }
