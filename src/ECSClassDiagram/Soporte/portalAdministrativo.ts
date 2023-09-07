@@ -1,4 +1,4 @@
-import { Tareas } from "./tareas";
+import { Tareas } from "./TareasProgramadas UI";
 export class portalAdministrativo {
     usuarios: string[];
     private tarea: Tareas;

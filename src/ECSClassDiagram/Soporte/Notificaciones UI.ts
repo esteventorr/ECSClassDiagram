@@ -1,4 +1,6 @@
-import { Tareas } from "./tareas";
+import { Tareas } from "./TareasProgramadas UI";
+import { ManejadorDatos } from "../ManejoDatos";
+
 export class notificaciones {
     tipoNotificacion: any;
     private tarea: Tareas;
@@ -7,8 +9,9 @@ export class notificaciones {
         this.tipoNotificacion = this.tipoNotificacion;
         this.tarea = new Tareas();
     }
-    crearNotificacion(tipoNotificacion){
+    crearNotificacion(tipoNotificacion) {
         console.log("mensaje notificacion");
+        return null;
     }
 
     enviarNotificacion(email:any){

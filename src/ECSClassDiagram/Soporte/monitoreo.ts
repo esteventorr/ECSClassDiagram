@@ -1,4 +1,4 @@
-import { notificaciones } from "./notificaciones";
+import { notificaciones } from "./Notificaciones UI";
 export class monitoreo {
 
     private notificacion: notificaciones;
