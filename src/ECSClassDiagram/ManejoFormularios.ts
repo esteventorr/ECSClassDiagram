@@ -1,5 +1,6 @@
 import { InterfazAPI } from "./ConexionesAPI";
 import { Tutorial } from "./Tutorial";
+import { NotificacionesUI } from "./Soporte/Notificaciones UI";
 
 export class Carrousel {
   constructor() {}
@@ -15,9 +16,8 @@ export class Carrousel {
   }
 }
 export class ManejoFormularios extends Carrousel {
-
   // ...
-  formularios: any;
+  formulariosOffline: any;
   private tutorial: Tutorial;
   private AddresSection: AddresSection;
   private PersonSection: PersonSection;
@@ -26,7 +26,7 @@ export class ManejoFormularios extends Carrousel {
 
   constructor(formularios: any) {
     super();
-    this.formularios = this.formularios;
+    this.formulariosOffline = this.formulariosOffline;
     this.tutorial = new Tutorial();
   }
 
@@ -41,7 +41,13 @@ export class ManejoFormularios extends Carrousel {
 
   enviarFormulario(): void {
     let envioManagement: InterfazAPI;
-    envioManagement.enviarDatos(this.formularios);
+    envioManagement.enviarDatos(this.formulariosOffline);
+    console.log("Enviando formulario.");
+  }
+
+  enviarFormularioOffline(formularios: any): void {
+    let envioManagement: InterfazAPI;
+    envioManagement.enviarDatos(formularios);
     console.log("Enviando formulario.");
   }
 }
@@ -77,28 +83,35 @@ export class FeedBackSection extends ManejoFormularios {
 }
 
 export class ManejoFormulariosOffline extends ManejoFormularios {
+  public formulariosOffline: any;
 
-    constructor(formularios: any) {
-        super(formularios);
-    }
+  constructor(formularios: any) {
+    super(formularios);
+    // EVENT LISTENER
+  }
 
-    guardarDatosLocalesCache(): void {
-        console.log('Guardando datos localmente.');
-        this.formularios.setItem('datos', JSON.stringify(this.formularios));
-    }
-    guardarDatosLocalesMobileCache(): void {
-        console.log('Guardando datos localmente.');
-        this.formularios.setItem('datos', JSON.stringify(this.formularios));
-    }
+  sincronizarConInternet() {
+    this.enviarFormularioOffline(this.formulariosOffline);
+    NotificacionesUI.notificarFormulariosCompletados("1");
+  }
 
-    // Carga de datos Locales
-    cargarDatosLocalesCache(): void {
-        console.log('Cargando datos localmente.');
-        this.formularios = JSON.parse(this.formularios.getItem('datos'));
-    }
+  guardarDatosLocalesCache(): void {
+    console.log("Guardando datos localmente.");
+    this.formulariosOffline.setItem("datos", JSON.stringify(this.formulariosOffline));
+  }
+  guardarDatosLocalesMobileCache(): void {
+    console.log("Guardando datos localmente.");
+    this.formulariosOffline.setItem("datos", JSON.stringify(this.formulariosOffline));
+  }
 
-    // Envio notificaciones
-    enviarNotificacion(): void {
-        console.log('Enviando notificación.');
-    }
+  // Carga de datos Locales
+  cargarDatosLocalesCache(): void {
+    console.log("Cargando datos localmente.");
+    this.formulariosOffline = JSON.parse(this.formulariosOffline.getItem("datos"));
+  }
+
+  // Envio notificaciones
+  enviarNotificacion(): void {
+    console.log("Enviando notificación.");
+  }
 }

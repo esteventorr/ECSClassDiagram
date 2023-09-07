@@ -1,9 +1,10 @@
+import { ManejadorDatos } from '../ManejoDatos';
 import IGenerarReporte from './IGenerarReporte'; 
 import Reportes from './Reportes'; 
 
 class GeneradorDeReporte implements IGenerarReporte {
   async generarYEnviarReporte(informe: Reportes) {
-
+    let manejoDatos: ManejadorDatos = new ManejadorDatos(null, null);
     informe.generarInforme();
 
   
@@ -23,6 +24,12 @@ class GeneradorDeReporte implements IGenerarReporte {
   private async enviarAApiRest(informe: Reportes) {
 
     console.log(`Informe enviado a la API REST: ${JSON.stringify(informe)}`);
+  }
+
+  static generarReporte(nombreReporte: string, tipoReporte: string) {
+    const reporte = new Reportes(nombreReporte);
+    reporte.agregarMetadata('tipo', tipoReporte);
+    return reporte;
   }
 }
 

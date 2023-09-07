@@ -7,14 +7,14 @@ export interface InterfazAPI {
 
 export class APIREST implements InterfazAPI {
   url: string;
-  manejadorDatos: ManejadorDatos; // Relación de composición
 
   constructor(url: string, manejadorDatos: ManejadorDatos) {
     this.url = url;
-    this.manejadorDatos = manejadorDatos;
   }
 
-  obtenerDatos(): any {}
+  obtenerDatos(): any {
+    let manejoDatos: ManejadorDatos = new ManejadorDatos(null, null);
+  }
   enviarDatos(datos: any): void {}
   // ... otros métodos
 }

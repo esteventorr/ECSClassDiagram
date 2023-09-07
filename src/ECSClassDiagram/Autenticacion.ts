@@ -1,4 +1,5 @@
 import { APIREST } from "./ConexionesAPI";
+import { ManejadorDatos } from "./ManejoDatos";
 
 export class AutenticacionUsuario {
   usuario: string;
@@ -11,7 +12,9 @@ export class AutenticacionUsuario {
     this.apiRest = apiRest;
   }
 
-  iniciarSesion(): void {}
+  iniciarSesion(): void {
+    let manejoDatos: ManejadorDatos = new ManejadorDatos(null, null);
+  }
   cerrarSesion(): void {}
   // ... otros métodos
 }

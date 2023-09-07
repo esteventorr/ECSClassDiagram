@@ -1,4 +1,4 @@
-import { ManejadorDatos } from './ManejoDatos';
+import { InterfazAPI } from './ConexionesAPI';
 
 export class ManejoFormulariosBE {
     // ...
@@ -8,14 +8,12 @@ export class ManejoFormulariosBE {
 
     constructor(formularios: any) {
         this.formularios = this.formularios;
-        this.userID = ManejadorDatos.getUserID();
-        this.formID = ManejadorDatos.getFormID();
     }
     validarDatos(datos): boolean {
     return true;
     }
     enviarDatos(datos):void{
-
+        let envioManagement: InterfazAPI;
     }
     abrirFormulario(): any{
         return this.formularios;
