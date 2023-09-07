@@ -44,22 +44,6 @@ export class ManejoFormularios extends Carrousel {
     envioManagement.enviarDatos(this.formularios);
     console.log("Enviando formulario.");
   }
-
-  guardarDatosLocales(): void {
-    console.log("Guardando datos localmente.");
-    this.formularios.setItem("datos", JSON.stringify(this.formularios));
-  }
-
-  // Carga de datos Locales
-  cargarDatosLocales(): void {
-    console.log("Cargando datos localmente.");
-    this.formularios = JSON.parse(this.formularios.getItem("datos"));
-  }
-
-  // Envio notificaciones
-  enviarNotificacion(): void {
-    console.log("Enviando notificación.");
-  }
 }
 
 export class AddresSection extends ManejoFormularios {
@@ -90,4 +74,31 @@ export class FeedBackSection extends ManejoFormularios {
     super(informacionFeedBack);
     this.informacionFeedBack = informacionFeedBack;
   }
+}
+
+export class ManejoFormulariosOffline extends ManejoFormularios {
+
+    constructor(formularios: any) {
+        super(formularios);
+    }
+
+    guardarDatosLocalesCache(): void {
+        console.log('Guardando datos localmente.');
+        this.formularios.setItem('datos', JSON.stringify(this.formularios));
+    }
+    guardarDatosLocalesMobileCache(): void {
+        console.log('Guardando datos localmente.');
+        this.formularios.setItem('datos', JSON.stringify(this.formularios));
+    }
+
+    // Carga de datos Locales
+    cargarDatosLocalesCache(): void {
+        console.log('Cargando datos localmente.');
+        this.formularios = JSON.parse(this.formularios.getItem('datos'));
+    }
+
+    // Envio notificaciones
+    enviarNotificacion(): void {
+        console.log('Enviando notificación.');
+    }
 }
